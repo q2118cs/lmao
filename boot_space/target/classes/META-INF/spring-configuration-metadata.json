@@ -1,0 +1,51 @@
+{
+  "groups": [
+    {
+      "name": "book",
+      "type": "com.cool.properties.AuthorProperties",
+      "sourceType": "com.cool.properties.AuthorProperties"
+    },
+    {
+      "name": "spring.datasource.primary",
+      "type": "javax.sql.DataSource",
+      "sourceType": "com.cool.conf.DataSourceConfig",
+      "sourceMethod": "primaryDataSource()"
+    },
+    {
+      "name": "spring.datasource.second",
+      "type": "javax.sql.DataSource",
+      "sourceType": "com.cool.conf.DataSourceConfig",
+      "sourceMethod": "secondDataSource()"
+    },
+    {
+      "name": "spring.http.encoding",
+      "type": "com.cool.properties.HttpEncodingProperties",
+      "sourceType": "com.cool.properties.HttpEncodingProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "book.author",
+      "type": "java.lang.String",
+      "sourceType": "com.cool.properties.AuthorProperties"
+    },
+    {
+      "name": "book.name",
+      "type": "java.lang.String",
+      "sourceType": "com.cool.properties.AuthorProperties"
+    },
+    {
+      "name": "spring.http.encoding.charset",
+      "type": "java.nio.charset.Charset",
+      "sourceType": "com.cool.properties.HttpEncodingProperties",
+      "defaultValue": "UTF-8"
+    },
+    {
+      "name": "spring.http.encoding.force",
+      "type": "java.lang.Boolean",
+      "sourceType": "com.cool.properties.HttpEncodingProperties",
+      "defaultValue": true
+    }
+  ],
+  "hints": []
+}

@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="qpwa.dao.WebUserMapper" >
+  <resultMap id="BaseResultMap" type="com.cool.domain.WebUser" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="login" property="login" jdbcType="VARCHAR" />
+    <result column="login_tel" property="loginTel" jdbcType="VARCHAR" />
+    <result column="password" property="password" jdbcType="VARCHAR" />
+    <result column="kind" property="kind" jdbcType="CHAR" />
+    <result column="status" property="status" jdbcType="CHAR" />
+    <result column="reg_ip" property="regIp" jdbcType="VARCHAR" />
+    <result column="sourse" property="sourse" jdbcType="CHAR" />
+    <result column="created_time" property="createdTime" jdbcType="CHAR" />
+    <result column="update_time" property="updateTime" jdbcType="CHAR" />
+    <result column="invite_code" property="inviteCode" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, login, login_tel, password, kind, status, reg_ip, sourse, created_time, update_time, 
+    invite_code
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from web_user
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from web_user
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="qpwa.model.WebUser" >
+    insert into web_user (id, login, login_tel, 
+      password, kind, status, reg_ip, 
+      sourse, created_time, update_time, 
+      invite_code)
+    values (#{id,jdbcType=INTEGER}, #{login,jdbcType=VARCHAR}, #{loginTel,jdbcType=VARCHAR}, 
+      #{password,jdbcType=VARCHAR}, #{kind,jdbcType=CHAR}, #{status,jdbcType=CHAR}, #{regIp,jdbcType=VARCHAR}, 
+      #{sourse,jdbcType=CHAR}, #{createdTime,jdbcType=CHAR}, #{updateTime,jdbcType=CHAR}, 
+      #{inviteCode,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="qpwa.model.WebUser" >
+    insert into web_user
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="login != null" >
+        login,
+      </if>
+      <if test="loginTel != null" >
+        login_tel,
+      </if>
+      <if test="password != null" >
+        password,
+      </if>
+      <if test="kind != null" >
+        kind,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="regIp != null" >
+        reg_ip,
+      </if>
+      <if test="sourse != null" >
+        sourse,
+      </if>
+      <if test="createdTime != null" >
+        created_time,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="inviteCode != null" >
+        invite_code,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="login != null" >
+        #{login,jdbcType=VARCHAR},
+      </if>
+      <if test="loginTel != null" >
+        #{loginTel,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="kind != null" >
+        #{kind,jdbcType=CHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=CHAR},
+      </if>
+      <if test="regIp != null" >
+        #{regIp,jdbcType=VARCHAR},
+      </if>
+      <if test="sourse != null" >
+        #{sourse,jdbcType=CHAR},
+      </if>
+      <if test="createdTime != null" >
+        #{createdTime,jdbcType=CHAR},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=CHAR},
+      </if>
+      <if test="inviteCode != null" >
+        #{inviteCode,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="qpwa.model.WebUser" >
+    update web_user
+    <set >
+      <if test="login != null" >
+        login = #{login,jdbcType=VARCHAR},
+      </if>
+      <if test="loginTel != null" >
+        login_tel = #{loginTel,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="kind != null" >
+        kind = #{kind,jdbcType=CHAR},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=CHAR},
+      </if>
+      <if test="regIp != null" >
+        reg_ip = #{regIp,jdbcType=VARCHAR},
+      </if>
+      <if test="sourse != null" >
+        sourse = #{sourse,jdbcType=CHAR},
+      </if>
+      <if test="createdTime != null" >
+        created_time = #{createdTime,jdbcType=CHAR},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=CHAR},
+      </if>
+      <if test="inviteCode != null" >
+        invite_code = #{inviteCode,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="qpwa.model.WebUser" >
+    update web_user
+    set login = #{login,jdbcType=VARCHAR},
+      login_tel = #{loginTel,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR},
+      kind = #{kind,jdbcType=CHAR},
+      status = #{status,jdbcType=CHAR},
+      reg_ip = #{regIp,jdbcType=VARCHAR},
+      sourse = #{sourse,jdbcType=CHAR},
+      created_time = #{createdTime,jdbcType=CHAR},
+      update_time = #{updateTime,jdbcType=CHAR},
+      invite_code = #{inviteCode,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
